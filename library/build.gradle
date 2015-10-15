@@ -12,7 +12,7 @@ def libVersionName = "1.0.0.0"
 version = libVersionName
 def siteUrl = 'https://github.com/shareme/GWSDroidGradle'
 def gitUrl = 'https://github.com/shareme/GWSDroidGradle.git'
-group = "com.github.shareme.GWSAndroidUUID"
+group = "com.github.shareme"
 
 
 
