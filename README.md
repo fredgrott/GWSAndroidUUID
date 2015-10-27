@@ -3,6 +3,23 @@ GWSAndroidUUID
 
 To compute the Android UUID in a secure and reliable way.
 
+Implementation
+==============
+
+I set up an GWSAndroidUuidFactory to first check and see if we already stored the Uuid and if so use
+that as the Uuid. If the Uuid has never been created before an Uuid is created taking into account the
+different device environments that Android OS can be found in and making sure that if a pure androidID
+value is used that its hashed to obscure it.
+
+Obscuring the androidID alone will not secure and that is why we use the secure settings
+to grab the had value of the androidID. Its not a perfect solution. When everyone switches to android
+OS 6.0 we than can employ a faster more crypto-enhanced solution.
+
+The reason why we cannot use androidID alone is two-fold, one we have enough devices(over 1 billion)
+that some popular app might hit androidID number collision as its a small bit number.
+The other reason is that we have secure it in some way and hashing it and mixing it some other stuff in
+combination with obfuscating the code via proguard helps raise the bar.
+
 Usage
 =====
 
@@ -20,7 +37,7 @@ Than in the module buildscript:
 
 
 ```groovy
-compile 'com.github.shareme:GWSAndroidUUID:1.0.0.0@aar'
+compile 'com.github.shareme:GWSAndroidUUID:{latest-release-number}@aar'
 ```
 
 
